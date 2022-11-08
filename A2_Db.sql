@@ -195,7 +195,6 @@ begin
 	end if;
 	
 	
-	
 	vdayName = REPLACE (to_char(DATE(delivery_date_time), 'Day'), ' ', '') ;
 	
 	
@@ -216,11 +215,9 @@ begin
 		
 		Select CASE WHEN Max(transaction_id) IS NULL THEN 1::text ELSE  Max(transaction_id) END into vtransId
 		From transact;
-		
-		
+				
 		vtransId = vtransId + 1;
 		
-
 		
 		insert into transact(transaction_id, customer_id, product_id)
     	values (vtransId, custr_id, purchase_product_id);
